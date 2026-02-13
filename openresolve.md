@@ -10,10 +10,10 @@
   Summarizes intent via commit messages/diffs for local reasoning.  
 5. propose_patch(conflict_file, resolution_code, format=unified_diff)  
   Generates a patch for review; do not auto‑apply.  
-6. preview_patch(conflict_file, resolution_code)  
-  Shows a diff preview to the user.  
-7. apply_patch(conflict_file, resolution_code)  
-  Applies the final resolution after explicit confirmation.  
+6. ~~preview_patch(conflict_file, resolution_code)~~  
+  ~~Shows a diff preview to the user.~~  
+7. ~~apply_patch(conflict_file, resolution_code)~~  
+  ~~Applies the final resolution after explicit confirmation.~~
 ## Validation (highly recommended)  
 - validate_resolution(file_path, mode=syntax|lint|tests)  
   Run a fast parse or lint check; avoid full test suite by default.  
