@@ -1,0 +1,10 @@
+Get contextual snippets for merge conflict markers in files.
+
+Usage:
+- Scans for standard conflict markers (<<<<<<<, =======, >>>>>>>) using a regex search.
+- Returns conflict blocks with surrounding context lines, grouped by file.
+- Use filePath to target a single file, or path/include to scan a directory.
+- Use context to control how many lines are shown around each conflict.
+- Use limit to cap the number of conflicts returned.
+- By default, includes three-way git context from merge stages when available.
+- Use commitContext to include recent commit messages for conflicted files.
