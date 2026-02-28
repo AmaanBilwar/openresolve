@@ -1,8 +1,0 @@
-Get contextual snippets for merge conflict markers in files.
-
-Usage:
-- Scans for standard conflict markers (<<<<<<<, =======, >>>>>>>) using a regex search.
-- Returns conflict blocks with surrounding context lines, grouped by file.
-- Use filePath to target a single file, or path/include to scan a directory.
-- Use context to control how many lines are shown around each conflict.
-- Use limit to cap the number of conflicts returned.
