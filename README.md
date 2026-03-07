@@ -1,18 +1,5 @@
-<p align="center">
-  <a href="https://opencode.ai">
-    <picture>
-      <source srcset="packages/console/app/src/asset/logo-ornate-dark.svg" media="(prefers-color-scheme: dark)">
-      <source srcset="packages/console/app/src/asset/logo-ornate-light.svg" media="(prefers-color-scheme: light)">
-      <img src="packages/console/app/src/asset/logo-ornate-light.svg" alt="OpenCode logo">
-    </picture>
-  </a>
-</p>
+<h1 align="center">Openresolve</h1>
 <p align="center">The open source merge conflict resolution agent.</p>
-<p align="center">
-  <a href="README.md">English</a> |
-</p>
-
-[![OpenCode Terminal UI](packages/web/src/assets/lander/screenshot.png)](https://opencode.ai)
 
 ---
 
@@ -76,13 +63,10 @@ If you're interested in contributing to OpenCode, please read our [contributing 
 
 ### Building on OpenCode
 
-this project is not built by the opencode team, it's built on top of opencode by
-me :) 
+this project is not built by the opencode team, it's built on top of opencode by me :) 
 
 ### FAQ
 
-#### How is this different from Claude Code?
+#### add questions here
 
 ---
-
-**Join our community** [Discord](https://discord.gg/opencode) | [X.com](https://x.com/opencode)
