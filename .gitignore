@@ -2,9 +2,7 @@
 node_modules
 .worktrees
 .sst
-.env
 .idea
-.vscode
 .codex
 *~
 playground
@@ -27,3 +25,4 @@ target
 opencode-dev
 logs/
 *.bun-build
+config.bat
