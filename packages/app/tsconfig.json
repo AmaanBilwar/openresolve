@@ -18,9 +18,10 @@
     "outDir": "node_modules/.ts-dist",
     "isolatedModules": true,
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": ["./src/*"],
+    },
+    "types": ["node", "solid-js", "bun"],
   },
   "include": ["src", "package.json"],
-  "exclude": ["dist", "ts-dist"]
+  "exclude": ["dist", "ts-dist"],
 }
