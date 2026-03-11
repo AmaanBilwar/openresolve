@@ -1,0 +1,17 @@
+Line before conflict
+<<<<<<< HEAD
+Local change line 1
+Local change line 2
+=======
+Incoming change line 1
+Incoming change line 2
+>>>>>>> feature/branch
+Line after conflict
+
+Another block start
+<<<<<<< ours
+Ours only
+=======
+Theirs only
+>>>>>>> theirs
+Another block end

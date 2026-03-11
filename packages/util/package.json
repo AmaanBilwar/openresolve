@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "typescript": "catalog:",
-    "@types/bun": "catalog:"
+    "@types/bun": "catalog:",
+    "@types/minimatch": "catalog:"
   }
 }
