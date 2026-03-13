@@ -5,6 +5,7 @@ import DESCRIPTION from "./get_merge_conflict_context.txt"
 import { Instance } from "@/project/instance"
 import path from "path"
 import { assertExternalDirectory } from "./external-directory"
+import { getStages, gitRun } from "@/git/stages"
 
 const MAX_LINE_LENGTH = 2000
 
@@ -234,42 +235,14 @@ export const GetMergeConflictContext = Tool.define("get_merge_conflict_context",
       const text = lines.slice(start, end).map(clip)
       return { start: start + 1, end: start + text.length, lines: text }
     }
-    const run = async (args: string[]) => {
-      const proc = Bun.spawn(["git", ...args], {
-        stdout: "pipe",
-        stderr: "pipe",
-        signal: ctx.abort,
-        cwd: Instance.directory,
-      })
-      const out = await new Response(proc.stdout).text()
-      const err = await new Response(proc.stderr).text()
-      const code = await proc.exited
-      if (code !== 0) return { ok: false, out, err }
-      return { ok: true, out }
-    }
+    const run = (args: string[]) => gitRun(args, Instance.directory, ctx.abort)
     const stages = async (file: string) => {
-      const list = await run(["ls-files", "-u", "--", file])
-      if (!list.ok || !list.out.trim()) return null
-      const lines = list.out.trim().split(/\r?\n/)
-      const present = new Set<string>()
-      for (const line of lines) {
-        const parts = line.split("\t")
-        const meta = parts[0]?.trim()
-        if (!meta) continue
-        const stage = meta.split(/\s+/)[2]
-        if (stage) present.add(stage)
-      }
-      if (!present.has("1") || !present.has("2") || !present.has("3")) return null
-      const base = await run(["show", `:1:${file}`])
-      if (!base.ok) return null
-      const ours = await run(["show", `:2:${file}`])
-      if (!ours.ok) return null
-      const theirs = await run(["show", `:3:${file}`])
-      if (!theirs.ok) return null
+      const result = await getStages(file, Instance.directory, ctx.abort)
+      if (!result) return null
       return {
-        base: base.out.split(/\r?\n/),
-        ours: ours.out.split(/\r?\n/),
-        theirs: theirs.out.split(/\r?\n/),
+        base: result.base.split(/\r?\n/),
+        ours: result.ours.split(/\r?\n/),
+        theirs: result.theirs.split(/\r?\n/),
       }
     }
 
