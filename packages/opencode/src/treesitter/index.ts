@@ -55,7 +55,7 @@ const init = lazy(async () => {
 })
 
 const languageLoads = new Map<string, Promise<Language>>()
-const parserCache = new Map<string, Promise<import("web-tree-sitter").default>>()
+const parserCache = new Map<string, Promise<import("web-tree-sitter").Parser>>()
 
 async function fetchAndCacheWasm(url: string, lang: string): Promise<string> {
   const filename = `tree-sitter-${lang}.wasm`
